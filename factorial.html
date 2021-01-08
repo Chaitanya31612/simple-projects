@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0; 
+    
+}
+    .form{
+        font-family:sans-serif;
+        top: 50%;
+        left: 50%;
+        transform: translateX(35%) translateY(50%);
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="form">
+    <h1>Factorial of a Number</h1>
+    <br>
+    <form>
+        <label for="number"> Enter a number </label>
+        <input id="number" type="text"> 
+        <h3></h3>
+        <br><br>
+        <button onclick="fn2()">Factorial</button>
+    </form>
+</div>
+</body>
+<script>
+ 
+   
+function fn1(){
+    let number= Number(document.getElementById("number").value);
+    let fact=1;
+    for(let i=1;i<=number;i++)
+    {
+        fact=fact*i;
+       
+    }
+    return fact;
+   
+
+    // alert("The factorial is " + fact);
+}
+function fn2(){
+    alert(fn1());
+   
+}
+// let number= Number(prompt("Enter a number"));
+// let fact= 1;
+
+// function factorial(num)
+// {
+//     for(let i=1;i<=number;i++)
+//     {
+//         fact= fact*i;
+//     }
+//    return fact;
+// }
+// alert("the number is " + factorial(number));
+</script>
+</html>

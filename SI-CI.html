@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SI-CI</title>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: rgb(216, 143, 114);
+        color: white;
+    }
+#theForm{
+    display: table;
+    padding: 15px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.row{
+    display: table-row;
+}
+.row label{
+    display: table-cell;
+    padding: 3px;
+    text-align: center;
+}
+.row input{
+    display: table-cell;
+    padding: 3px;
+}
+button{
+    width: 100px;
+    height: 50px;
+}
+
+</style>
+</head>
+<body>
+    <form id="theForm">
+            <div class="row">
+        <label for="principle">PRINCIPLE =></label>
+        <input type="text" id="principle">
+        <br>
+            </div>
+        <div class="row">
+        <label for="rate">RATE =></label>
+        <input type="text" id="rate">
+        <br>
+    </div>
+        <div class="row">
+        <label for="time">TIME =></label>
+        <input type="text" id="time">
+
+    <br><br>
+    <button onclick="SI()">SI Amount</button> &nbsp; &nbsp;&nbsp; &nbsp;
+    <button onclick="CI()">CI Amount</button>
+    </form>
+   
+</body>
+<script>
+ 
+    
+function SI(){
+    let principle= parseInt(document.getElementById("principle").value);
+    let rate= parseInt(document.getElementById("rate").value);
+    let time=  parseInt(document.getElementById("time").value);
+    let si= principle*rate*time;
+   alert("The SI is " + si);
+}
+function CI(){
+    let principle= parseInt(document.getElementById("principle").value);
+    let rate= parseInt(document.getElementById("rate").value);
+    let time=  parseInt(document.getElementById("time").value);
+    let ci= principle*Math.pow(1+rate/100,time);
+    alert("The CI is " + ci);
+}
+</script>
+</html>

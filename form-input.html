@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Animation</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+
+    
+    <style>
+    * {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background-color: rgb(87, 189, 130);
+  transition: background 0.5s ease;
+  position: relative;
+}
+
+.field-name,
+.field-email,
+.field-password,
+.field-finish {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  height: 50px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.field-name i,
+.field-email i,
+.field-password i,
+.field-finish i {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.field-name input,
+.field-email input,
+.field-password input {
+  background: none;
+  border: none;
+  outline: none;
+  flex: 1;
+  height: 100%;
+}
+
+div.innactive {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 50%);
+}
+
+div.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+    </style>
+
+
+
+
+
+  </head>
+  <body>
+    <form>
+      <div class="field-name">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" required />
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <div class="field-email innactive">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" required />
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <div class="field-password innactive">
+        <i class="fas fa-key"></i>
+        <input type="password" placeholder="Password" required />
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      <div class="field-finish innactive">
+        <i class="fas fa-heart"></i>
+        <p>Thank You!</p>
+        <i class="fas fa-heart"></i>
+      </div>
+    </form>
+  </body>
+
+
+
+
+  <script>
+  function animatedForm() {
+        const arrows = document.querySelectorAll(".fa-arrow-down");
+
+        arrows.forEach(arrow => {
+            arrow.addEventListener("click", () => {
+                const input = arrow.previousElementSibling;
+                const parent = arrow.parentElement;
+                const nextForm = parent.nextElementSibling;
+
+                // Check for validations
+                if (input.type === "text" && validateUser(input)) {
+                    nextSlide(parent, nextForm);
+                } else if (input.type === "email" && validateEmail(input)) {
+                    nextSlide(parent, nextForm);
+                } else if (input.type === "password" && validateUser(input)) {
+                    nextSlide(parent, nextForm);
+                } else {
+                    parent.style.animation = "shake 0.5s ease";
+                }
+                parent.addEventListener("animationend", () => {
+                    parent.style.animation = "";
+                })
+            });
+        });
+    }
+
+    // const obj = {
+    //     validateUser(user) {
+    //         if (user.value.length < 6) {
+    //             console.log("Not enough characteres");
+    //             error("rgb(189,87,87)");
+    //         } else {
+    //             error("rgb(87, 189, 130)");
+    //             return true;
+    //         }
+    //     }
+
+    // };
+
+    function nextSlide(parent, nextForm) {
+        parent.classList.add("innactive");
+        parent.classList.remove("active");
+        nextForm.classList.add("active");
+    }
+
+    function validateUser(user) {
+        if (user.value.length < 6) {
+            error("rgb(189,87,87)");
+        } else {
+            error("rgb(87, 189, 130)");
+            return true;
+        }
+    }
+
+    function validateEmail(email) {
+        const validation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (validation.test(email.value)) {
+            return true;
+            error("rgb(87, 189, 130)");
+        } else {
+            error("rgb(189,87,87)");
+        }
+    }
+
+    function error(color) {
+        document.body.style.backgroundColor = color;
+    }
+    animatedForm();
+
+  </script>
+
+
+
+
+
+
+</html>

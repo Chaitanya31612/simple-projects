@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image flex</title>
+    
+   
+    <style>
+        img{
+            width:400px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            transition: .7s ease;
+        }
+        button{
+            outline: none;
+            cursor: pointer;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <h1></h1>
+   <button onclick="setUserName()">Change user</button>
+    <img src='image.jpg'>
+
+</body>
+<script>
+
+    
+// let myImg= document.querySelector('img');
+// myImg.onclick= function(){
+
+//     let mySrc = myImg.getAttribute('src');
+//     if(mySrc==='image.jpg')
+//     {
+//         myImg.setAttribute('src', '124235.jpg');
+//     }
+//     else{
+//         myImg.setAttribute('src', 'image.jpg' );
+//     }
+// }
+let myButton= document.querySelector('button');
+let myHeading=document.querySelector('h1');
+
+
+function setUserName(){
+    let myName = prompt('Please enter your name');
+    localStorage.setItem('name', myName);
+if(!myName|| myName===null){
+   alert('Please enter your username!')
+    setUserName();
+}
+else{
+    let storedName= localStorage.getItem('name');
+    myHeading.textContent= 'Hey your username is ' + storedName;
+}
+}
+</script>
+</html>

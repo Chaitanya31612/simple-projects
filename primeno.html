@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Number</title>
+</head>
+<body>
+    <form action="">
+        <label for="no">Enter Number</label>
+        <input type="text" id="no">
+        <br>
+        <button onclick="check()">CHECK</button>
+    </form>
+</body>
+<script>
+function check(){
+    let num= parseInt(document.getElementById("no").value);
+    if(num==1){
+        alert("Not a prime number");
+    }
+    else if(num==2){
+        alert("Yes, it is a prime number");
+    }
+    else{
+    for(let i=2;i<num;i++)
+    {
+     if(num%i==0){
+         alert("Not a prime number");   
+         break;
+     }
+     
+     else{
+         alert("Yes it is a prime number");
+         break;
+     }
+    }
+}
+}
+
+</script>
+</html>

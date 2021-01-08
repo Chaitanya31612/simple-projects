@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Antilog Calculator</title>
+</head>
+<body>
+    <div class="form">
+            <h1>Antilog Calculator</h1>
+        <form>
+            <input type="text" id= "num">
+            <br>
+            <h3></h3>
+            <button onclick="antilog()">Calculate</button>
+        </form>
+    </div>
+</body>
+<script>
+     
+function antilog(){
+    let number = Number(document.getElementById("num").value);
+    let anti = 10**number;
+    alert(anti)
+}
+
+  
+
+</script>
+</html>

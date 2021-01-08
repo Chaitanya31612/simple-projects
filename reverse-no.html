@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Reverse No</h1>
+    <form>
+        <label for="no">Enter number:</label>
+        <input type="text" id="no">
+        <br><br>
+        <button onclick="rev()">GO</button>
+    </form>
+</body>
+<script>
+function rev(){
+    let num = parseInt(document.getElementById("no").value);
+    let s=0;
+    while(num!=0){
+        let r= num%10;
+        s= s*10 + r;
+        num= Math.floor(num/10);
+    }
+    alert(s)
+}
+</script>
+</html>

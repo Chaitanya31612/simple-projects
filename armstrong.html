@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Armstrong</h1>
+    <form>
+        <input type="text" id="t1">
+        <br><br>
+        <button onclick="arm()">GO</button>
+    </form>
+</body>
+<script>
+    function arm(){
+        let num = parseInt(document.getElementById("t1").value);
+        let t=num;
+        let s=0;
+        while(num!=0){
+            let r= num%10;
+            s= s + r*r*r;
+            num= Math.floor(num/10);
+        }
+        if(t==s)
+        {
+            alert("Yes the number " + t + " is an Armstrong number");
+        }
+        else{
+            alert("No the number " + t + " is not an Armstrong number");
+
+        }
+        
+    }
+
+
+</script>
+</html>
