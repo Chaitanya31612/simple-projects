@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="jqueryui/jquery-ui.css">
+<link rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+<link rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+</head>
+<body>
+
+<!-- Tooltip and datepicker-->
+   <div id="mydiv">
+   <h3 title="hello world" style="cursor: pointer" id="heading1" > Introduction to jQueryUI</h3>
+   <br/><br/>
+   <input type="text" id="date" placeholder="Click here to enter date">
+</div>
+
+<!-- Accordiaon-->
+<h2> Accordion</h2>
+
+<div id="Accordion">
+   <h3> Xiaomi</h3>
+   <p> Xiaomi is one of the leading company in todays time and this is due to there thought about giving people value
+       for their money. Also due to their consistency they are number 1 brand in India. Also they are giving tough 
+      competition to other companies.  </p>
+      
+      <h3> Samsung</h3>
+   <p> Samsung is one of the leading company in todays time and this is due to there thought about giving people value
+       for their money. Also due to their consistency they are number 1 brand in India. Also they are giving tough 
+      competition to other companies.  </p>
+
+      <h3> Apple</h3>
+   <p> Apple is one of the leading company in todays time and this is due to there thought about giving people value
+       for their money. Also due to their consistency they are number 1 brand in India. Also they are giving tough 
+      competition to other companies. Apple is one of the largest selling smartphone brand all over the globe and 
+   there is a huge fan base just for there design and premium service and all over small smartphone brand try to 
+copy there design and the innovation that apple does this is due to the fact that small smartphone brands do not have
+much courage to try to innovate because if their innovation doesn't work out they cannot withstand with the loss as  
+there market and sale are at local level so they wait for companies like samsung and apple to innovate and if people liked
+the thing they impliment that to their phone and try to provide user with fake iphone at very less price. </p>
+
+
+</div>
+  
+<!-- Autocomplete-->
+<h3> Autocomplete</h3>
+<div id="autodiv">
+   <label> <b>Enter your city</b> </label>
+   <input type="text" id="auto" placeholder="Enter your city name" >
+</div>
+
+<video controls>
+   <source src="C:\Users\Chaitanya G\Downloads\DARD DILO KE KAM HO JATE-MALE COVER BY CHAITANYA.mp4" type="video/mp4">
+      Video not supported by your browser
+</video>
+<progress min="0" max="100" value="50"></progress>
+
+    <h1> Hello world</h1>
+    <br><br>
+    <div class="slider"></div>
+</body>
+
+<script src="jquery-3.4.1.js"> </script>
+<script src="jqueryui/jquery-ui.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$("#date").datepicker({
+      numberOfMonth: 2,
+      changeYear: true,
+      changeMonth: true,
+      showOtherMonths: true,
+      
+
+
+});
+
+$("h3").tooltip({
+   // track: true,
+   content: "Hey I am fine how are you",
+   
+ 
+});
+
+$("#Accordion").accordion({
+   collapsible:true,
+   event: "click",
+   heightStyle: true,
+   icons:{ header:"ui-icon-plus", activeHeader:"ui-icon-minus"}
+});
+
+$("#auto").autocomplete({
+   source: [ "Mumbai", "Madras", "New Delhi", "New Jersy","New york", "Sonipat", "Srinagar"]
+},{
+   autoFocus: true,
+   minLength:1
+});
+
+$(".slider").slider({
+   values: [ 10, 25 ]
+});
+
+
+
+</script>
+</html>

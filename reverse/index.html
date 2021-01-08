@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 5px solid black;
+        height: 500px;
+      }
+      .txt {
+        border: 3px ridge lightgray;
+        outline: none;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h3 {
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        color: lightsalmon;
+      }
+      .btn {
+        width: 75px;
+        height: 50px;
+        cursor: pointer;
+        background: orange;
+        color: white;
+        border: none;
+        letter-spacing: 3px;
+        transform: translateX(70%);
+        transition: all 0.5s ease;
+      }
+      .btn:hover {
+        background: lightseagreen;
+        color: black;
+        transform: translateX(70%) scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Reverse Number</h1>
+      <form>
+        <input class="txt" type="text" placeholder="Enter first number" />
+        <br /><br />
+
+        <button class="btn" type="button">Reverse</button>
+      </form>
+      <h3></h3>
+    </div>
+  </body>
+  <script>
+    const number = document.querySelector(".txt");
+    const container = document.querySelector(".container");
+    const btn = document.querySelector(".btn");
+    const heading = document.querySelector("h3");
+    var random = number => {
+      return Math.floor(Math.random()*(number+1));
+    }
+    btn.addEventListener("click", () => {
+      // const rem = Number(number[0].value) % Number(number[1].value);
+      // heading.textContent="Remainder is " + rem ;  
+      // var rgbc = 'rgb(' + random(255) + ','+ random(255) + ',' + random(255)  + ')';
+      // container.style.backgroundColor= rgbc;
+      let n = Number(number.value);
+      let num = n;
+      let rev = 0;
+      while(num>0) {
+        var q= Math.floor(num/10);
+        var r = Math.floor(num%10);
+        rev= (rev*10) + r;
+        num=q;
+        
+      }
+      heading.textContent=rev;
+      
+    });
+  </script>
+</html>
